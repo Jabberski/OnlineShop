@@ -13,6 +13,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Table(name = "users")
 public class UserEntity extends ParentEntity {
 
     private String email;
@@ -27,6 +28,4 @@ public class UserEntity extends ParentEntity {
             joinColumns = @JoinColumn(name = "email", referencedColumnName = "email"))
     private Set<UserRoleEntity> roles = new HashSet<>();
 
-    @OneToOne(mappedBy = "user",fetch = FetchType.LAZY,cascade = CascadeType.PERSIST)
-    private UserDetailsEntity userDetails;
 }
