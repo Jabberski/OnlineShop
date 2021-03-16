@@ -26,7 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 // zasady bezpieczeństwa są dopasowywane od góry do pierwszego pasującego
                 .antMatchers("/resources/**").permitAll()
-                .antMatchers("/").permitAll()
+                .antMatchers("/" , "/**").permitAll() // @TODO z jakiegos powodu security wykurwia zdjęcia
                 .antMatchers("/login").permitAll()
                 .antMatchers("/register").permitAll()
                 .antMatchers("/dashboard", "/dashboard/**").hasAnyRole("USER", "ADMIN")
